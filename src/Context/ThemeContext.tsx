@@ -12,8 +12,8 @@ export const themes = {
 };
 
 type ThemeContextType = {
-  theme: typeof themes.light | typeof themes.dark;
-  setTheme: (theme: typeof themes.light | typeof themes.dark) => void;
+  theme: typeof themes.dark | typeof themes.light;
+  setTheme: (theme: typeof themes.dark | typeof themes.light) => void;
 };
 
 const initialState: ThemeContextType = {
@@ -37,7 +37,7 @@ const useTheme = () => {
   const context = useContext(ThemeContext);
 
   if (context === undefined) {
-    throw new Error("Must be inside theme provider");
+    throw new Error("error kang");
   }
 
   return context;
