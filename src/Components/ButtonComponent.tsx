@@ -1,18 +1,24 @@
 import styled from "styled-components";
+import useTheme, { themes } from "../Context/ThemeContext";
 
 interface ButtonProps {
-  isActive: boolean;
   buttonType?: "button" | "submit" | "reset";
+  background?: string;
 }
 
-export default function MainButton({ isActive, buttonType }: ButtonProps) {
+export default function MainButton({ buttonType }: ButtonProps) {
+  const { theme, setTheme } = useTheme();
+
   return (
     <>
       <Wrapper>
         <Button
+          color={theme.foreground}
+          background={theme.background}
           type={buttonType}
-          isActive={isActive}
-          onClick={() => alert("Clicked")}
+          onClick={() =>
+            setTheme(theme === themes.light ? themes.dark : themes.light)
+          }
         >
           Click Me
         </Button>
@@ -26,16 +32,13 @@ const Wrapper = styled.div`
   gap: 20px;
 `;
 
-const Button = styled.button<{ isActive: boolean }>`
-  background: ${(props) =>
-    props.isActive
-      ? "linear-gradient(91.4deg, #2fb8ff 0%, #9eecd9 100%)"
-      : "grey"};
+const Button = styled.button<ButtonProps>`
+  background: ${(props) => props.background};
   padding: 12px 0;
   width: 200px;
   border: none;
   border-radius: 30px;
-  color: #ffffff;
+  color: ${(props) => props.color};
   font-weight: bold;
   font-family: Segoe UI, sans-serif;
 `;

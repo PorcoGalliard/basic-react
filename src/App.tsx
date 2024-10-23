@@ -1,16 +1,17 @@
 import styled from "styled-components";
 import background from "./Images/background.png";
-import MyPage from "./Components/MyPageComponent";
+import { ThemeProvider } from "./Context/ThemeContext";
+import MainButton from "./Components/ButtonComponent";
 
 export default function App() {
   return (
-    <>
+    <ThemeProvider>
       <Wrapper>
         <Background src={background} alt="background image" />
-        <Title>Sign In</Title>
-        <MyPage />
+        <Title>Use Context</Title>
+        <MainButton />
       </Wrapper>
-    </>
+    </ThemeProvider>
   );
 }
 
