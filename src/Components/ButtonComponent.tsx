@@ -2,13 +2,18 @@ import styled from "styled-components";
 
 interface ButtonProps {
   isActive: boolean;
+  buttonType?: "button" | "submit" | "reset";
 }
 
-export default function MainButton({ isActive }: ButtonProps) {
+export default function MainButton({ isActive, buttonType }: ButtonProps) {
   return (
     <>
       <Wrapper>
-        <Button isActive={isActive} onClick={() => alert("Clicked")}>
+        <Button
+          type={buttonType}
+          isActive={isActive}
+          onClick={() => alert("Clicked")}
+        >
           Click Me
         </Button>
       </Wrapper>

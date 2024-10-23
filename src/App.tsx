@@ -1,27 +1,14 @@
 import styled from "styled-components";
 import background from "./Images/background.png";
-// import { menuData } from "./Data/menuData";
-// import NavigationButton from "./Components/NavigationButtonComponent";
-import Menu from "./Components/MenuComponent";
+import SignInForm from "./Components/SignInFormComponent";
 
 export default function App() {
   return (
     <>
       <Wrapper>
         <Background src={background} alt="background image" />
-        <Title>Load Local Data</Title>
-        {/* <ButtonWrapper>
-          {menuData.map((data, index) => {
-            return (
-              <NavigationButton
-                key={index}
-                title={data.title}
-                image={data.image}
-              />
-            );
-          })}
-        </ButtonWrapper> */}
-        <Menu />
+        <Title>Sign In</Title>
+        <SignInForm />
       </Wrapper>
     </>
   );
@@ -51,8 +38,3 @@ const Background = styled.img`
   top: 0px;
   z-index: -1;
 `;
-
-// const ButtonWrapper = styled.div`
-//   display: flex;
-//   justify-content: center;
-// `;
