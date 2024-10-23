@@ -1,35 +1,57 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import styled from "styled-components";
+import background from "./Images/background.png";
+import MainButton from "./Components/ButtonComponent";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Wrapper>
+        <Background src={background} alt="background image" />
+        <Title>useEffect Hook</Title>
+        <MainButton />
+      </Wrapper>
     </>
-  )
+  );
 }
 
-export default App
+const Wrapper = styled.div`
+  padding-top: 150px;
+  margin: 0 auto;
+  display: grid;
+  justify-items: center;
+`;
+
+const Title = styled.h1`
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 48px;
+  color: #ffffff;
+  text-align: center;
+`;
+
+// const SectionWrapper = styled.div`
+//   display: grid;
+//   justify-items: center;
+//   padding: 50px 0;
+// `;
+
+// const Description = styled.h2`
+//   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+//     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+//   font-style: normal;
+//   font-weight: bold;
+//   font-size: 20px;
+//   line-height: 48px;
+//   color: #ffffff;
+//   text-align: center;
+// `;
+
+const Background = styled.img`
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  z-index: -1;
+`;
