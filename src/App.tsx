@@ -1,14 +1,25 @@
 import styled from "styled-components";
 import background from "./Images/background.png";
-import NotificationCard from "./Components/NotificationCardComponent";
+import { menuData } from "./Data/menuData";
+import NavigationButton from "./Components/NavigationButtonComponent";
 
 export default function App() {
   return (
     <>
       <Wrapper>
         <Background src={background} alt="background image" />
-        <Title>Conditional Rendering</Title>
-        <NotificationCard />
+        <Title>Load Local Data</Title>
+        <ButtonWrapper>
+          {menuData.map((data, index) => {
+            return (
+              <NavigationButton
+                key={index}
+                title={data.title}
+                image={data.image}
+              />
+            );
+          })}
+        </ButtonWrapper>
       </Wrapper>
     </>
   );
@@ -26,32 +37,20 @@ const Title = styled.h1`
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 48px;
+  font-size: 60px;
   line-height: 48px;
   color: #ffffff;
   text-align: center;
 `;
-
-// const SectionWrapper = styled.div`
-//   display: grid;
-//   justify-items: center;
-//   padding: 50px 0;
-// `;
-
-// const Description = styled.h2`
-//   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-//     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-//   font-style: normal;
-//   font-weight: bold;
-//   font-size: 20px;
-//   line-height: 48px;
-//   color: #ffffff;
-//   text-align: center;
-// `;
 
 const Background = styled.img`
   position: absolute;
   width: 100%;
   top: 0px;
   z-index: -1;
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
 `;
