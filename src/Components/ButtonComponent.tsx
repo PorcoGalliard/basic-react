@@ -1,21 +1,20 @@
-import { useState, useEffect } from "react";
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
 
 export default function MainButton() {
-  const [count, setCount] = useState(0);
-
-  const increment = () => {
-    setCount((count) => count + 1);
-  };
+  const ref = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    document.title = `You clicked ${count} times`;
-  }, [count]);
-
+    if (ref) {
+      console.log(ref.current?.click());
+    }
+  }, []);
   return (
     <>
       <Wrapper>
-        <Button onClick={increment}>You've clicked {count} times</Button>
+        <Button ref={ref} onClick={() => alert("Clicked")}>
+          Click Me
+        </Button>
       </Wrapper>
     </>
   );
