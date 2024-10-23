@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import background from "./Images/background.png";
-import { menuData } from "./Data/menuData";
-import NavigationButton from "./Components/NavigationButtonComponent";
+// import { menuData } from "./Data/menuData";
+// import NavigationButton from "./Components/NavigationButtonComponent";
+import Menu from "./Components/MenuComponent";
 
 export default function App() {
   return (
@@ -9,7 +10,7 @@ export default function App() {
       <Wrapper>
         <Background src={background} alt="background image" />
         <Title>Load Local Data</Title>
-        <ButtonWrapper>
+        {/* <ButtonWrapper>
           {menuData.map((data, index) => {
             return (
               <NavigationButton
@@ -19,7 +20,8 @@ export default function App() {
               />
             );
           })}
-        </ButtonWrapper>
+        </ButtonWrapper> */}
+        <Menu />
       </Wrapper>
     </>
   );
@@ -50,7 +52,7 @@ const Background = styled.img`
   z-index: -1;
 `;
 
-const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-`;
+// const ButtonWrapper = styled.div`
+//   display: flex;
+//   justify-content: center;
+// `;

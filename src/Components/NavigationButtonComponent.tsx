@@ -3,11 +3,16 @@ import styled from "styled-components";
 interface navigationProps {
   title: string;
   image: string;
+  onClick?: () => void;
 }
 
-export default function NavigationButton({ title, image }: navigationProps) {
+export default function NavigationButton({
+  title,
+  image,
+  onClick,
+}: navigationProps) {
   return (
-    <Wrapper>
+    <Wrapper onClick={onClick}>
       <Image src={image} />
       <Title>{title}</Title>
     </Wrapper>
