@@ -29,7 +29,7 @@ const Wrapper = styled.button`
     transition: 0.3s ease-in-out;
   }
 
-  :hover {
+  &:hover {
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0px 20px 40px rgba(31, 47, 71, 0.25),
       0px 1px 5px rgba(0, 0, 0, 0.1), inset 0 0 0 0.5px rgba(255, 255, 255, 0.4);
@@ -40,7 +40,7 @@ const Wrapper = styled.button`
     }
   }
 
-  :focus {
+  &:focus {
     outline: none;
   }
 `;
