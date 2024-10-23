@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import background from "./Images/background.png";
-import MainButton from "./Components/ButtonComponent";
+import Card from "./Components/CardComponent";
 
 export default function App() {
   return (
@@ -8,7 +8,7 @@ export default function App() {
       <Wrapper>
         <Background src={background} alt="background image" />
         <Title>useEffect Hook</Title>
-        <MainButton />
+        <Card />
       </Wrapper>
     </>
   );
