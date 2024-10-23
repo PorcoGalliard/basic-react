@@ -1,12 +1,13 @@
-import MainButton from "./ButtonComponent";
+import { useState } from "react";
 import styled from "styled-components";
 
-export default function Card() {
+export default function NotificationCard() {
+  const [notificationNumber, setNotificationNumber] = useState(10);
+
   return (
     <>
       <Wrapper>
-        This is my card
-        <MainButton isActive={true} />
+        {notificationNumber >= 1 && <p>You have new {notificationNumber}</p>}
       </Wrapper>
     </>
   );
@@ -21,7 +22,7 @@ const Wrapper = styled.div`
   height: 150px;
   display: grid;
   justify-items: center;
-  align-items: start;
+  align-items: center;
   font-family: Segoe UI, sans-serif;
   font-weight: bold;
 `;

@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import background from "./Images/background.png";
-import Card from "./Components/CardComponent";
+import NotificationCard from "./Components/NotificationCardComponent";
 
 export default function App() {
   return (
     <>
       <Wrapper>
         <Background src={background} alt="background image" />
-        <Title>useEffect Hook</Title>
-        <Card />
+        <Title>Conditional Rendering</Title>
+        <NotificationCard />
       </Wrapper>
     </>
   );
