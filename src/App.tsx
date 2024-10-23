@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import background from "./Images/background.png";
-import SignInForm from "./Components/SignInFormComponent";
+import PageScrollEvent from "./Components/Description";
 
 export default function App() {
   return (
@@ -8,7 +8,7 @@ export default function App() {
       <Wrapper>
         <Background src={background} alt="background image" />
         <Title>Sign In</Title>
-        <SignInForm />
+        <PageScrollEvent />
       </Wrapper>
     </>
   );
