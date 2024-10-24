@@ -2,15 +2,11 @@ import styled from "styled-components";
 import background from "./Images/background.png";
 import { ThemeProvider } from "./Context/ThemeContext";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import UserCard from "./Components/UserCardComponent";
-import { useMemo, useState } from "react";
+import SubmitButton from "./Components/SubmitButtonComponent";
+import { useRef } from "react";
 
 export default function App() {
-  const [counter, setCounter] = useState(0);
-
-  const memoizedCard = useMemo(() => {
-    return <UserCard />;
-  }, []);
+  const ref = useRef<HTMLButtonElement>(null);
 
   return (
     <HelmetProvider>
@@ -24,11 +20,8 @@ export default function App() {
       <ThemeProvider>
         <Wrapper>
           <Background src={background} alt="background image" />
-          <Title>Validator</Title>
-          {memoizedCard}
-          <Button onClick={() => setCounter(counter + 1)}>
-            You Clicked {counter} times
-          </Button>
+          <Title>Forward Ref</Title>
+          <SubmitButton title="okay" ref={ref} />
         </Wrapper>
       </ThemeProvider>
     </HelmetProvider>
@@ -58,11 +51,4 @@ const Background = styled.img`
   width: 100%;
   top: 0px;
   z-index: -1;
-`;
-
-const Button = styled.button`
-  display: grid;
-  color: #000000
-  margin: 0 auto;
-  background: #FFFFFF
 `;
