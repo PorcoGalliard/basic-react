@@ -2,12 +2,8 @@ import styled from "styled-components";
 import background from "./Images/background.png";
 import { ThemeProvider } from "./Context/ThemeContext";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import SubmitButton from "./Components/SubmitButtonComponent";
-import { useRef } from "react";
 
 export default function App() {
-  const ref = useRef<HTMLButtonElement>(null);
-
   return (
     <HelmetProvider>
       <Helmet>
@@ -21,7 +17,6 @@ export default function App() {
         <Wrapper>
           <Background src={background} alt="background image" />
           <Title>Forward Ref</Title>
-          <SubmitButton title="okay" ref={ref} />
         </Wrapper>
       </ThemeProvider>
     </HelmetProvider>
