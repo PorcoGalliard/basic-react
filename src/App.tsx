@@ -2,16 +2,23 @@ import styled from "styled-components";
 import background from "./Images/background.png";
 import { ThemeProvider } from "./Context/ThemeContext";
 import MainButton from "./Components/ButtonComponent";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 export default function App() {
   return (
-    <ThemeProvider>
-      <Wrapper>
-        <Background src={background} alt="background image" />
-        <Title>Use Context</Title>
-        <MainButton />
-      </Wrapper>
-    </ThemeProvider>
+    <HelmetProvider>
+      <Helmet>
+        <title>lEARN REACT Wlth Deslgn + Code</title>
+        <meta name="description" content="Learn design and code, by building real apps with React and Swift. Complete courses about the best tools." />
+      </Helmet>
+      <ThemeProvider>
+        <Wrapper>
+          <Background src={background} alt="background image" />
+          <Title>SEO and Metadata</Title>
+          <MainButton />
+        </Wrapper>
+      </ThemeProvider>
+    </HelmetProvider>
   );
 }
 
