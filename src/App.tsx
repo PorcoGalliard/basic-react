@@ -2,9 +2,16 @@ import styled from "styled-components";
 import background from "./Images/background.png";
 import { ThemeProvider } from "./Context/ThemeContext";
 import { Helmet, HelmetProvider } from "react-helmet-async";
-import EmailCard from "./Components/EmailCardComponent";
+import UserCard from "./Components/UserCardComponent";
+import { useMemo, useState } from "react";
 
 export default function App() {
+  const [counter, setCounter] = useState(0);
+
+  const memoizedCard = useMemo(() => {
+    return <UserCard />;
+  }, []);
+
   return (
     <HelmetProvider>
       <Helmet>
@@ -18,7 +25,10 @@ export default function App() {
         <Wrapper>
           <Background src={background} alt="background image" />
           <Title>Validator</Title>
-          <EmailCard email="oke@gmail.com" />
+          {memoizedCard}
+          <Button onClick={() => setCounter(counter + 1)}>
+            You Clicked {counter} times
+          </Button>
         </Wrapper>
       </ThemeProvider>
     </HelmetProvider>
@@ -48,4 +58,11 @@ const Background = styled.img`
   width: 100%;
   top: 0px;
   z-index: -1;
+`;
+
+const Button = styled.button`
+  display: grid;
+  color: #000000
+  margin: 0 auto;
+  background: #FFFFFF
 `;
