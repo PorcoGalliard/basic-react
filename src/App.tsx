@@ -1,21 +1,24 @@
 import styled from "styled-components";
 import background from "./Images/background.png";
 import { ThemeProvider } from "./Context/ThemeContext";
-import MainButton from "./Components/ButtonComponent";
 import { Helmet, HelmetProvider } from "react-helmet-async";
+import EmailCard from "./Components/EmailCardComponent";
 
 export default function App() {
   return (
     <HelmetProvider>
       <Helmet>
         <title>lEARN REACT Wlth Deslgn + Code</title>
-        <meta name="description" content="Learn design and code, by building real apps with React and Swift. Complete courses about the best tools." />
+        <meta
+          name="description"
+          content="Learn design and code, by building real apps with React and Swift. Complete courses about the best tools."
+        />
       </Helmet>
       <ThemeProvider>
         <Wrapper>
           <Background src={background} alt="background image" />
-          <Title>SEO and Metadata</Title>
-          <MainButton />
+          <Title>Validator</Title>
+          <EmailCard email="oke@gmail.com" />
         </Wrapper>
       </ThemeProvider>
     </HelmetProvider>
