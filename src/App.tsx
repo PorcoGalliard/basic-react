@@ -1,49 +1,72 @@
 import styled from "styled-components";
-import background from "./Images/background.png";
-import { ThemeProvider } from "./Context/ThemeContext";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Products from "./Page/Products";
+import Cart from "./Components/CartComponent";
+import { ShopProvider } from "./Context/ShopContext";
 
-export default function App() {
+const App = () => {
   return (
-    <HelmetProvider>
-      <Helmet>
-        <title>lEARN REACT Wlth Deslgn + Code</title>
-        <meta
-          name="description"
-          content="Learn design and code, by building real apps with React and Swift. Complete courses about the best tools."
-        />
-      </Helmet>
-      <ThemeProvider>
+    <Router>
+      <ShopProvider>
         <Wrapper>
-          <Background src={background} alt="background image" />
-          <Title>Forward Ref</Title>
+          <TitleWrapper>
+            <h1>useReducer Hook Starter Project</h1>
+            <p>
+              A <a href="https://designcode.io">Design+Code</a> tutorial
+            </p>
+          </TitleWrapper>
+          <LinksWrapper>
+            <Link to="/">Home</Link>
+            <Link to="/cart">Cart</Link>
+          </LinksWrapper>
+          <Routes>
+            <Route path="/" element={<Products />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
         </Wrapper>
-      </ThemeProvider>
-    </HelmetProvider>
+      </ShopProvider>
+    </Router>
   );
-}
+};
+
+export default App;
 
 const Wrapper = styled.div`
-  padding-top: 150px;
-  margin: 0 auto;
+  font-family: "Roboto";
+  margin: 40px;
   display: grid;
-  justify-items: center;
+  row-gap: 20px;
+  justify-content: center;
 `;
 
-const Title = styled.h1`
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 60px;
-  line-height: 48px;
-  color: #ffffff;
-  text-align: center;
+const TitleWrapper = styled.div`
+  * {
+    margin: 0;
+  }
+
+  display: grid;
+  row-gap: 10px;
+
+  a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+  }
 `;
 
-const Background = styled.img`
-  position: absolute;
+const LinksWrapper = styled.div`
+  display: flex;
   width: 100%;
-  top: 0px;
-  z-index: -1;
+  justify-content: space-evenly;
+
+  a {
+    text-decoration: none;
+    color: #bb7250;
+
+    :hover {
+      color: #bb7250;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
 `;
